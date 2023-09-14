@@ -2,8 +2,9 @@ abstract class List{
 abstract public void print();
 
 public int search(int value){return -1;};
-
- /*public void addAtStart(int[]arr,int value){};
+public void addAtStart(int value){};
+public  void addAtEnd(int[]arr,int value){};
+ /*
  public  void addAtEnd(int[]arr,int value){};
  public  void deleteAtStart(int[]arr){};
  public  void deleteAtEnd(int[]arr){};
@@ -13,7 +14,9 @@ public int search(int value){return -1;};
 }
   class Array extends List{
     int[] arr = new int[10];
-    Array(){
+    
+    Array()
+    {
         for (int i=0; i<=9;i++)
         {
             arr[i] = (i + 1);
@@ -39,8 +42,16 @@ public int search(int value){return -1;};
         }
         return -1;
   }
+public void addAtStart(int value)
+{
+    for(int i=9; i>0; i--)
+    {
+        arr[i] = arr[i-1];
+    }
+    arr[0] = value;
+}
 
-  }
+}
   class Test
   {
     public static void main(String[] args)
@@ -48,7 +59,9 @@ public int search(int value){return -1;};
         List arr = new Array();
         arr.print();
         
-System.out.println("the element has been found on the indax: " + 
+System.out.println("the element has been found on the index: " + 
 arr.search(4));
+arr.addAtStart(20);
+arr.print();
     }
   }
