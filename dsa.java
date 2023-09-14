@@ -1,18 +1,18 @@
 abstract class List{
-abstract public void print(int[] arr);
+abstract public void print();
 
-abstract public int search(int[] arr,int value);
+public int search(int value){return -1;};
 
- public void addAtStart(int[]arr,int value){};
+ /*public void addAtStart(int[]arr,int value){};
  public  void addAtEnd(int[]arr,int value){};
  public  void deleteAtStart(int[]arr){};
  public  void deleteAtEnd(int[]arr){};
  public  void deleteAtLoction(int[]arr,int location){};
- public  void addAtLocation(int[]arr,int location){};
+ public  void addAtLocation(int[]arr,int location){};*/
 
 }
   class Array extends List{
-    int[]arr;
+    int[] arr = new int[10];
     Array(){
         for (int i=0; i<=9;i++)
         {
@@ -20,14 +20,14 @@ abstract public int search(int[] arr,int value);
         }
     }
 
-    public void print(int[] arr) {
+    public void print() {
 
         for (int i = 0; i <= 9; i++) {
           System.out.println(arr[i]);
         }
       }
     
-    public int search(int[]arr,int value)
+    public int search(int value)
       {
         for(int i=0; i<= 9 ;i++) {
     
@@ -40,4 +40,15 @@ abstract public int search(int[] arr,int value);
         return -1;
   }
 
+  }
+  class Test
+  {
+    public static void main(String[] args)
+    {
+        List arr = new Array();
+        arr.print();
+        
+System.out.println("the element has been found on the indax: " + 
+arr.search(4));
+    }
   }
