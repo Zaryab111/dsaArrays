@@ -62,6 +62,7 @@ public void addAtStart(int value)
 System.out.println("the element has been found on the index: " + 
 arr.search(4));
 arr.addAtStart(20);
-arr.print();
+arr.print(); 
+
     }
   }
