@@ -62,10 +62,59 @@ public class Simple {
         
         sc.close(); // Close the scanner
     }
+    public void deletion(){
+        int g,h,j;
+        Scanner sc = new Scanner(System.in);
+        do{
+        Node temp4 = head;
+        if(head == null)
+        {
+            System.out.println("Link list is empty");
+        }
+        else{
+            System.out.println("Press 1 if you want to delete data at the beginning, press 2 if you want to delete data at the end, press 3 if you want to delete data at a selected position: ");
+            g= sc.nextInt();
+            switch(g){
+                case 1:
+                        temp4 = head;
+                        temp4 = temp4.next;
+                        head = temp4;
+                        break;
+                case 2:
+                   Node temp5 = head;
+                    Node ptr = temp5.next;
+                        while(ptr.next!=null)
+                        {
+                            temp5 = ptr;
+                            ptr =ptr.next;
+                            
+                        } 
+                        temp5.next = null;
+                        break;
+                case 3:
+                        System.out.println("enter the location where u want to delete the data; ");
+                        h = sc.nextInt();
+                        Node temp6 = head;
+                        Node ptr1 = temp6.next; 
+                        for(int i = 0 ;i<h-1;i++)
+                        {
+                            temp6 = ptr1;
+                            ptr1 = ptr1.next;
+
+                        }
+                        temp6.next = ptr1.next;
+                        break;
+            }
+            System.out.println("do u want to delete more? press 3 if yes: ");
+            
+            }
+            j = sc.nextInt();
+        }while(j == 3);
+        }
 
     public void print() {
         Node temp3 = head;
-        while (temp3 != null) {
+        while(temp3 != null) {
             System.out.print(temp3.data + " ");
             temp3 = temp3.next;
         }
@@ -75,6 +124,8 @@ public class Simple {
         Simple ll = new Simple();
 
         ll.addition();
+        ll.print();
+        ll.deletion();
         ll.print();
 
     }
